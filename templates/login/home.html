@@ -7,10 +7,7 @@
 
      <div class="jumbotron">
         <h1>Blogs</h1>
-        <form method="POST" action="{% url 'create' %}">
-            {% csrf_token %}
-            <button class="btn btn-info text-white" style="width:fit-content; padding: 4px; margin:10px;">Create</button>
-        </form>
+            <a href="{% url 'create' %}" class="btn btn-info text-white" style="width:fit-content; padding: 4px; margin:10px;">Create</a>
     </div>
 
     <div class="card-columns">
@@ -24,9 +21,9 @@
                 </div>
             </h5>
 
-            By: {{forum.name}}
+            By: {{forum.user}}
         <br>
-
+            Email: {{forum.user.email}}
             <hr>
             <h4>Comments: </h4>
             <br>
@@ -34,7 +31,7 @@
                 {%for i in discuss%}
                     {% if i.forum == forum %}
                         <p>{{i.discuss}}</p>
-                        By: {{ i.name }}
+                        By: {{ i.user }}
 
                         <hr size="3" width="90%">
                     {% endif %}

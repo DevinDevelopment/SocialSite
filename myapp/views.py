@@ -67,6 +67,7 @@ def create(request):
     if request.method == 'POST':
         form = CreateForm(request.POST)
         if form.is_valid():
+            form.instance.user = request.user
             form.save()
             return redirect('home')
     context = {'form': form}
@@ -79,6 +80,7 @@ def comment(request):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
+            form.instance.user = request.user
             form.save()
             return redirect('home')
     context = {'form': form}

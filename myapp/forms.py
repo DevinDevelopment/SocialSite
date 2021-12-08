@@ -25,6 +25,7 @@ class CreateForm(forms.ModelForm):
     class Meta:
         model = Forum
         fields = "__all__"
+        exclude = ['user']
 
 
 class todoform(forms.ModelForm):
@@ -37,3 +38,5 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = "__all__"
+        exclude = ['user']
+

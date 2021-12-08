@@ -20,8 +20,8 @@ def __str__(self):
 
 
 class Forum(models.Model):
-    name = models.CharField(max_length=100)
-    # email = models.CharField(max_length=100)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     topic = models.CharField(max_length=300)
     description = models.TextField(max_length=1000, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
@@ -31,7 +31,7 @@ class Forum(models.Model):
 
 
 class Comment(models.Model):
-    name = models.CharField(max_length=100, default=1)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     forum = models.ForeignKey(Forum, blank=True, on_delete=models.CASCADE)
     discuss = models.CharField(max_length=1000)
 
