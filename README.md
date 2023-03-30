@@ -1,2 +1,2 @@
-# Social-Site using Django for server requests and Bootstrat for ui components 
+# Social-Site using Django for server requests and Bootstrap for ui components 
 install npm and in terminal run 'npm run start'
